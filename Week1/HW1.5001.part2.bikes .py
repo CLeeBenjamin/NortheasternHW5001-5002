@@ -38,7 +38,6 @@ def main():
     wheels = float(input("How many wheels do you have?\n"))
     
     if wheels >= 2:
-        
         if wheels % 2 == 0:
             number_of_bikes = int(wheels // 2)
             if number_of_bikes <= 1:
@@ -100,7 +99,7 @@ def main():
 
         left_over_links = int(links - (number_of_bikes * 50))
         
-    #system ends program if there is not adequate amount
+    #system ends program if there is not an adequate amount
     #of links per bike 
     else:
         
