@@ -18,22 +18,19 @@ def main():
     screen = turtle.Screen()
     screen.bgcolor("black")
         
+  # list for colors        
     color_list = ["green", "blue", "orange", "purple", "red"]
-##    while count <= 20:
+    
+    # for loop, creates 20 squares 
     for i in range(20):
-        square.color(color_list[i%len(color_list)])
+        square.color(color_list[i % len(color_list)])
+        # square for every square
         for i in range(4):
-              
               square.forward(size)
               square.right(90)
-              print("I was here")   
-        
-        i +=i                           
-        count += 1
-        
-        print("it went", count, "time through")
+              
+        # directed angle by 20 after square is created
         square.right(20)
-
          
 main()
 
