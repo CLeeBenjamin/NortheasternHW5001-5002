@@ -3,6 +3,9 @@ from hanoi_viz import move_disk
 
 TOWERS = ["Musa", "Caesar", "Zulu"]
 
+
+
+
 def number_of_disks():
 
     
@@ -18,24 +21,23 @@ def number_of_disks():
             print("Try again. Pick an integer from 1-8.")
 
 
+def move_tower(num, source, target, middle, towers):
 
-def move_tower(num, source, target, middle):
-
-    king_towers = initialize_towers(num, TOWERS[0], TOWERS[1],TOWERS[2])
-
-    
     if num == 1:
-            move_disk(source, target, king_towers)
+            move_disk(source, target, towers)
 
-##    else:
-##            move_tower(num - 1, source, middle, target)
-##            move_disk(source, target, king_towers)
-##            move_tower(num - 1, middle, target, source)
+    else:
+            move_tower(num - 1, source, middle, target, towers)
+            move_disk(source, target, towers)
+            move_tower(num - 1, middle, target, source, towers)
+
+
 
 def main():
     
      num_disks = number_of_disks()
-     move_tower(num_disks,TOWERS[0], TOWERS[1], TOWERS[2])
+     kings = initialize_towers(num_disks, TOWERS[0], TOWERS[1], TOWERS[2])
+     move_tower(num_disks,TOWERS[0], TOWERS[1], TOWERS[2], kings)
 
       
 main()
