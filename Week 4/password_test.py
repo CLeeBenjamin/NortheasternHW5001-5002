@@ -1,3 +1,25 @@
+'''
+CS5001
+HW4
+password_test.py
+FALL 2018
+CASTON BOYD
+'''
+
+'''
+Strings Tested with:
+1. one alphabet
+2. one number
+3. one special character
+4. length between 6 to 12 characters
+5. missing alphabet
+6. missing number
+7. missing special characters
+8. not between 6 to 12 characters
+
+'''
+
+
 from password import has_an_alphabet
 from password import has_a_numeric_value
 from password import has_a_special_char
@@ -12,21 +34,25 @@ def check_for_alphabet(test_cases, expected_results):
         Does: Executes has_an_alphabet with all inputs from the list,
         and tests if they match the expected results.
     '''
-    
+    # prints before the results in order to
+    # delineate tested categories 
     if expected_results == True:
         print("-Checking for valid passwords: has an alphabet-")
     else:
         print("-Checking for invalid passwords: doesnt have an alphabet-")
+        
+    # increment count for # of test passed and failed    
     passed_test = 0
     failed_test = 0
-    
+
+    # for loop to test list of valid and invalid strings
     for test in test_cases: 
         if expected_results == True:
             print("Tested password", test,"is valid", end = '')
         elif expected_results == False:
             print("Tested password", test,"is invalid", end = '')
 
-        
+        # method being tested 
         if has_an_alphabet(test) == expected_results:
             passed_test += 1               
             print("...SUCCESS!")
@@ -47,19 +73,25 @@ def check_for_numbers(test_cases, expected_results):
         Does: Executes has_a_numeric_value for all inputs from the list,
         and presents if they match the expected results.
     '''
+    # prints before the results in order to
+    # delineate tested categories 
     if expected_results == True:
         print("-Checking for valid passwords: has a number-")
     else:
         print("-Checking for invalid passwords: doesnt have a number-")
+
+    # increment count for # of test passed and failed        
     passed_test = 0
     failed_test = 0
+
+    # for loop to test list of valid and invalid strings
     for test in test_cases: 
         if expected_results == True:
             print("Tested password", test,"is valid", end = '')
         elif expected_results == False:
             print("Tested password", test,"is invalid", end = '')
 
-        
+        # method being tested 
         if has_a_numeric_value(test) == expected_results:               
             passed_test += 1               
             print("...SUCCESS!")
@@ -80,19 +112,25 @@ def check_for_special_char(test_cases, expected_results):
         Does: Executes has_a_special_char for all inputs from the list,
         and presents if they match the expected results.
     '''
+    # prints before the results in order to
+    # delineate tested categories 
     if expected_results == True:
         print("-Checking for valid passwords: has a special character-")
     else:
         print("-Checking for invalid passwords: no special character-")
+
+    # increment count for # of test passed and failed     
     passed_test = 0
     failed_test = 0
+
+    # for loop to test list of valid and invalid strings
     for test in test_cases: 
         if expected_results == True:
             print("Tested password", test,"is valid", end = '')
         elif expected_results == False:
             print("Tested password", test,"is invalid", end = '')
 
-        
+        # method being tested 
         if has_a_special_char(test) == expected_results:               
             passed_test += 1               
             print("...SUCCESS!")
@@ -112,19 +150,26 @@ def check_for_word_length(test_cases, expected_results):
         Does: Executes is_right_char_length for all inputs from the list,
         and presents if they match the expected results.
     '''
+    # prints before the results in order to
+    # delineate tested categories 
     if expected_results == True:
         print("-Checking for valid passwords: length between 6 and 12-")
     else:
-        print("-Checking for invalid passwords: length less than 6 or greater than 12-")
+        print("-Checking for invalid passwords: length"
+              "less than 6 or greater than 12-")
+        
+    # increment count for # of test passed and failed     
     passed_test = 0
     failed_test = 0
+
+    # for loop to test list of valid and invalid strings
     for test in test_cases: 
         if expected_results == True:
             print("Tested password", test,"is valid", end = '')
         elif expected_results == False:
             print("Tested password", test,"is invalid", end = '')
 
-        
+        # method being tested 
         if is_right_char_length(test) == expected_results:               
             passed_test += 1               
             print("...SUCCESS!")
@@ -146,11 +191,16 @@ def check_valid_passwords(test_cases, expected_result):
          and presents if they match the expected results.
     '''
     print("-Checking for valid passwords-")
+
+    # increment count for # of test passed and failed 
     passed_test = 0
     failed_test = 0
-    
+
+    # for loop to test list of valid strings
     for test in test_cases: 
         print("Tested", test, end = '')
+        
+        # methods being tested 
         if has_an_alphabet(test) == expected_result and \
            has_a_numeric_value(test) == expected_result and \
            has_a_special_char(test) == expected_result and \
@@ -171,15 +221,21 @@ def check_invalid_passwords(test_cases, expected_result):
     ''' Function: check_invalid_passwords
         Input: Lists of strings to test, and a boolean for expected result
         Returns: Nothing
-        Does: Executes is_right_char_length for all inputs from the list,
+        Does: Executes has_an_alphabet, has_a_numeric_value, 
+        has_a_special_char, is_right_char_length for all inputs from the list,
         and presents if they match the expected results.
     '''
     print("-Checking for invalid passwords-")
+
+    # increment count for # of test passed and failed 
     passed_test = 0
     failed_test = 0
-    
+
+    # for loop to test list of invalid strings
     for test in test_cases: 
         print("Tested", test, end = '')
+
+        # methods being tested 
         if has_an_alphabet(test) == expected_result or \
            has_a_numeric_value(test) == expected_result or \
            has_a_special_char(test) == expected_result or \
@@ -202,20 +258,29 @@ def main():
 
 
     # all valid passwords
-    one_alphabet = ["111&%T%343", "4345t&&&", "123p23$", "#####i4%", "*1232G5%("]
-    one_number = ["afdaf3&&", "rere4^^^", "fdre%5^&(", "fadf6#@$", "$#@L7Ljf"]
-    one_special = ["1111$11nn", "333%33ii", "1232$Tty", "rea^f4df", "4544%jjf"]
-    six_tweleve_length = ["43&f123", "312H&%#", "3afaf&&&&&a", "34&&&&&ft", "123$$$for"]
+    one_alphabet = ["111##T%343", "4345t$$$", "123p23$",
+                    "#####i4@", "@1232G5##$"]
+    one_number = ["afdaf3&&", "rere4^^^", "fdre%5^&(",
+                  "fadf6#@$", "$#@L7Ljf"]
+    one_special = ["1111$11nn", "333#33ii", "1232$Tty",
+                   "rea@f4df", "4544#jjf"]
+    six_tweleve_length = ["43&f123", "312H&%#", "3afaf&&&&&a",
+                          "34&&&&&ft", "123$$$for"]
     all_valid = one_alphabet + one_number + one_special + six_tweleve_length
 
 
     
     # all invalid passwords
-    missing_alphabet = ["111&%%343", "4345&&&", "12323$", "#####4%", "*12325%("]
-    missing_special = ["111111nn", "3333333ii", "1232Tty", "reafdf", "4543445jjf"]
-    missing_number = ["afdaf&&", "rere^^^", "fdre%^&(", "fadf#@$", "$#@LLjf"]
-    missing_length = ["43&f", "312H", "3afaf&&&&&adfafd", "34&&&&&&&dfdaddf", "123"]
-    all_invalid = missing_alphabet + missing_special + missing_number + missing_length
+    missing_alphabet = ["111&%%343", "4345&&&", "12323$",
+                        "#####4%", "*12325%("]
+    missing_special = ["111111nn", "3333333ii", "1232Tty",
+                       "reafdf", "4543445jjf"]
+    missing_number = ["afdaf&&", "rere^^^", "fdre%^&(",
+                      "fadf#@$", "$#@LLjf"]
+    missing_length = ["43&f", "312H", "3afaf&&&&&adfafd",
+                      "34&&&&&&&dfdaddf", "123"]
+    all_invalid = missing_alphabet + missing_special + \
+                  missing_number + missing_length
 
     # valid tests 
     check_for_alphabet(one_alphabet, True)
@@ -232,8 +297,4 @@ def main():
     check_invalid_passwords(all_invalid, False)
     
     
-
-    
-
-
 main()
