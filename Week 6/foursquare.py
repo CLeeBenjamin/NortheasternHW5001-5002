@@ -102,6 +102,15 @@ class Board:
         self.draw_four_disks(othello)
 
 
+        
+    def draw_lines(self,turt, n):
+        turt.pendown()
+        turt.forward(SQUARE * n)
+        turt.penup()
+
+
+class Pieces: 
+
     def draw_piece(self, item1, item2, color):
 
         othello = turtle.Turtle()
@@ -118,10 +127,6 @@ class Board:
         othello.end_fill()
 
 
-    def draw_lines(self,turt, n):
-        turt.pendown()
-        turt.forward(SQUARE * n)
-        turt.penup()
 
 class Players:
     
@@ -175,6 +180,7 @@ class Game:
         self.board = Board()
         self.players = Players()
         self.moves = Moves()
+        self.piece = Pieces()
     
     def clicked(self, x, y):
         turtle.hideturtle()
@@ -199,11 +205,12 @@ class Game:
                        
             for key, value in SPACE_GRID.items():
                 if space == key:
-                    self.board.draw_piece(value[0],value[1], color)
+                    self.piece.draw_piece(value[0],value[1], color)
                     already_pressed.append(key)
             
         if self.moves.total_moves_count == 12:
             self.moves.check_total_moves(players_total[0] ,players_total[1])
+            
         
 
             
